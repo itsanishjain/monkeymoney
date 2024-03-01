@@ -439,23 +439,13 @@ const getSiblings = (parent) => {
         }));
 };
 
-// (async () => {
-//     const url = window.location.href
-//     const parent = findWebsiteOwner(url);
-//     if (parent) {
-//         const siblings = getSiblings(parent);
-//         alert(`Parent - ${parent}\nSiblings - ${siblings.map(({ siblings }) => siblings.join(', ')).join('\n')}`);
-//     } else {
-//         alert('This website does not belong to any known parent company.');
-//     }
-// })();
-
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === "buttonClicked") {
-        // Your code to handle the button click event in the content script
-        console.log("YOOO")
+(async () => {
+    const url = window.location.href
+    const parent = findWebsiteOwner(url);
+    if (parent) {
+        const siblings = getSiblings(parent);
+        alert(`Parent - ${parent}\nSiblings - ${siblings.map(({ siblings }) => siblings.join(', ')).join('\n')}`);
+    } else {
+        alert('This website does not belong to any known parent company.');
     }
-    console.log("BROOOO")
-
-});
+})();
